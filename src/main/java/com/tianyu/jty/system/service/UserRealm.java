@@ -35,7 +35,7 @@ import com.tianyu.jty.system.utils.UsernamePasswordCaptchaToken;
  * @date 2015年1月14日
  */
 @Service
-@DependsOn({"userDao","permissionDao","rolePermissionDao"})
+//这句应该没有用处，@DependsOn({"userDao","permissionDao","rolePermissionDao"})
 public class UserRealm extends AuthorizingRealm {
 
 	@Autowired
@@ -66,6 +66,10 @@ public class UserRealm extends AuthorizingRealm {
 
 	/**
 	 * 授权查询回调函数, 进行鉴权但缓存中无用户的授权信息时调用.
+	 * shiro使用 下面的配置做缓存，当第一次点击菜单的时候，会调用该方法，以后就会使用echcache作为缓存
+	 * <bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:cache/ehcache-shiro.xml"/>
+	</bean>
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
