@@ -22,9 +22,9 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * 用户entity
- * @author ty
- * @date 2015年1月13日
+ * @DynamicInsert(true)：只是插入那些不为空的字段，
+ * @DynamicUpdate(true)：只更新同一个session里面，同一个对象有改变的字段。
+ * @author Allen.Wang
  */
 @Entity
 @Table(name = "user")
