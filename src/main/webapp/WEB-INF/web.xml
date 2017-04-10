@@ -4,7 +4,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 	<display-name>jty</display-name>
-
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -12,16 +11,11 @@
 			classpath*:/applicationContext-shiro.xml
 		</param-value>
 	</context-param>
-	<context-param>
-		<param-name>spring.profiles.default</param-name>
-		<param-value>production</param-value>
-	</context-param>
-	<!--spring ApplicationContext 载入 -->
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-	<!-- Filter 定义 -->
 	<!-- 编码  filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -39,6 +33,7 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
 	
 	<!-- Hibernate Open Session In View filter-->
 	<filter>
