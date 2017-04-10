@@ -17,14 +17,23 @@ import com.tianyu.jty.common.utils.Global;
  * @date 2015年1月14日
  */
 @Controller
-@RequestMapping(value = "{adminPath}")
+//@RequestMapping(value = "{adminPath}")
 public class LoginController{
+	
+	@RequestMapping(value="/")
+	public String loginPage() {
+		Subject subject = SecurityUtils.getSubject();
+		if(subject.isAuthenticated()||subject.isRemembered()){
+			return "redirect:"+Global.getAdminPath();
+		} 
+		return "system/login";
+	}
 	
 	/**
 	 * 默认页面
 	 * @return
 	 */
-	@RequestMapping(value="login",method = RequestMethod.GET)
+	@RequestMapping(value="{adminPath}/login",method = RequestMethod.GET)
 	public String login() {
 		Subject subject = SecurityUtils.getSubject();
 		if(subject.isAuthenticated()||subject.isRemembered()){
@@ -39,7 +48,7 @@ public class LoginController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="login",method = RequestMethod.POST)
+	@RequestMapping(value="{adminPath}/login",method = RequestMethod.POST)
 	public String fail(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String userName, Model model) {
 		model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, userName);
 		return "system/login";
@@ -51,7 +60,7 @@ public class LoginController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="logout")
+	@RequestMapping(value="{adminPath}/logout")
 	public String logout(Model model) {
 		Subject subject = SecurityUtils.getSubject();
 		subject.logout();
