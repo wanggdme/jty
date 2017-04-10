@@ -20,6 +20,7 @@ import com.tianyu.jty.common.utils.Global;
 //@RequestMapping(value = "{adminPath}") 
 public class LoginController{
 	
+	//响应访问项目根路径的情况    http://localhost:8080/jty 或者 http://localhost:8080/jty/
 	@RequestMapping(value="/")
 	public String loginPage() {
 		Subject subject = SecurityUtils.getSubject();
