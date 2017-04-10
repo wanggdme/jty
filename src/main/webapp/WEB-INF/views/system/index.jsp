@@ -3,6 +3,7 @@
 <html>
 <head>
 <title>后台管理系统</title>
+<link rel="Shortcut Icon" href="favicon.ico" />
 <%@ include file="/WEB-INF/views/include/easyui.jsp"%>
 <script type="text/javascript" src="${ctx }/static/plugins/artTemplate/dist/template.js"></script>
 

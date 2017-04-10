@@ -11,6 +11,7 @@ request.setAttribute("error", error);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
+<link rel="Shortcut Icon" href="favicon.ico" />
 	<title>后台管理系统</title>
 	<script src="${ctx}/static/plugins/easyui/jquery/jquery-1.11.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${ctx}/static/css/bglogin.css" />
