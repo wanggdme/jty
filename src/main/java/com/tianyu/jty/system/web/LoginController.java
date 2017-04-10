@@ -17,7 +17,7 @@ import com.tianyu.jty.common.utils.Global;
  * @date 2015年1月14日
  */
 @Controller
-//@RequestMapping(value = "{adminPath}")
+//@RequestMapping(value = "{adminPath}") 
 public class LoginController{
 	
 	@RequestMapping(value="/")
