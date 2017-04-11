@@ -77,7 +77,7 @@ if(action=='create'){
 	$("input[name='gender'][value=${user.gender}]").attr("checked",true);
 }
 
-//提交表单
+//jquery easyUI 的 提交表单
 $('#mainform').form({    
     onSubmit: function(){    
     	var isValid = $(this).form('validate');

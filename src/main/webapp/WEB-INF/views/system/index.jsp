@@ -3,7 +3,7 @@
 <html>
 <head> 
 <title>后台管理系统</title>
-<link rel="Shortcut Icon" href="favicon.ico" />
+<!-- <link rel="Shortcut Icon" href="favicon.ico" /> -->
 <%@ include file="/WEB-INF/views/include/easyui.jsp"%>
 <script type="text/javascript" src="${ctx }/static/plugins/artTemplate/dist/template.js"></script>
 
@@ -24,7 +24,7 @@
         <div id="northPanel" data-options="region: 'north', border: false" style="height: 80px; overflow: hidden;">
             <div id="topbar" class="top-bar">
                 <div class="top-bar-left">
-                    <h1 style="margin-left: 10px; margin-top: 10px;color: #fff">JTY<span style="color: #3F4752">后台管理系统</span></h1>
+                    <h1 style="margin-left: 10px; margin-top: 10px;color: #fff"><span style="color: #3F4752"><!-- 后台管理系统 --></span></h1>
                 </div>
                 <div class="top-bar-right">
                     <div id="timerSpan"></div>
@@ -55,6 +55,7 @@
 
         <div data-options="region: 'west', title: '菜单导航栏', iconCls: 'icon-standard-map', split: true, minWidth: 200, maxWidth: 400" style="width: 220px; padding: 1px;">
             <div id="myMenu" class="easyui-accordion" data-options="fit:true,border:false">
+            <!-- 导航模板 -->
             <script id="menu" type="text/html">
 			{{each data as p_permission}}
 				{{if (p_permission.pid==null)}}
@@ -121,12 +122,18 @@
     </div>
 
 <script>
+
+//当前登录用户的权限集合 
+//类似 `ID`,`PID`,`NAME`,`TYPE`,`SORT`,`URL`,`PERM_CODE`,`ICON`,`STATE`,`DESCRIPTION` 
+//('2', '1', '角色管理', 'F', '3', 'system/role', '', 'icon-hamburg-my-account', 'closed', '');
 $.ajax({
 	async:false,
 	type:'get',
 	url:"${ctx}/system/permission/i/json",
 	success: function(data){
+		//当前登录用户的权限集合
 		var menuData={data:data};
+		//使用Juicer.js 使用id为menu的script模板生成菜单导航
 		var html = template('menu', menuData);
 		$('#myMenu').html(html); 
 	}

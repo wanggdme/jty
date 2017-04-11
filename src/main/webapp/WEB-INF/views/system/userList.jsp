@@ -102,7 +102,7 @@ function add() {
 	    maximizable:true,
 	    modal:true,
 	    buttons:[{
-			text:'确认',
+	    	text:'确认',
 			handler:function(){
 				$("#mainform").submit(); 
 			}
