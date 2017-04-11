@@ -12,10 +12,11 @@
         	<form id="searchFrom" action="">
        	        <input type="text" name="filter_LIKES_name" class="easyui-validatebox" data-options="width:150,prompt: '昵称'"/>
        	        <input type="text" name="filter_LIKES_phone" class="easyui-validatebox" data-options="width:150,prompt: '电话'"/>
-		        <input type="text" name="filter_GTD_createDate" class="easyui-my97" datefmt="yyyy-MM-dd" data-options="width:150,prompt: '开始日期'"/>
-		        - <input type="text" name="filter_LTD_createDate" class="easyui-my97" datefmt="yyyy-MM-dd" data-options="width:150,prompt: '结束日期'"/>
+		        <input type="text" name="filter_GTD_createDate" readonly="true" class="easyui-my97" datefmt="yyyy-MM-dd" data-options="width:150,prompt: '开始日期'"/>
+		        - <input type="text" name="filter_LTD_createDate"  readonly="true" class="easyui-my97" datefmt="yyyy-MM-dd" data-options="width:150,prompt: '结束日期'"/>
 		        <span class="toolbar-item dialog-tool-separator"></span>
 		        <a href="javascript(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="cx()">查询</a>
+		        <a href="javascript(0)" class="easyui-linkbutton" iconCls="icon-hamburg-settings" plain="true" onclick="resetForm('searchFrom')">重置</a>
 			</form>
 			
 	       	<shiro:hasPermission name="sys:user:add">
@@ -39,6 +40,10 @@
 <table id="dg"></table> 
 <div id="dlg"></div>  
 <script type="text/javascript">
+function resetForm(formId){  
+    $('#'+formId).form('clear');  
+}; 
+
 var dg;
 var d;
 $(function(){   
@@ -58,17 +63,17 @@ $(function(){
 	singleSelect:true,
     columns:[[    
         {field:'id',title:'id',hidden:true},    
-        {field:'loginName',title:'帐号',sortable:true,width:100},    
-        {field:'name',title:'昵称',sortable:true,width:100},
-        {field:'gender',title:'性别',sortable:true,
+        {field:'loginName',title:'帐号',sortable:true,width:100,align:'center'},    
+        {field:'name',title:'昵称',sortable:true,width:100,align:'center'},
+        {field:'gender',align:'center',title:'性别',sortable:true,
         	formatter : function(value, row, index) {
        			return value==1?'男':'女';
         	}
         },
-        {field:'email',title:'email',sortable:true,width:100},
-        {field:'phone',title:'电话',sortable:true,width:100},
-        {field:'loginCount',title:'登录次数',sortable:true},
-        {field:'previousVisit',title:'上一次登录',sortable:true}
+        {field:'email',title:'email',sortable:true,width:100,align:'center'},
+        {field:'phone',title:'电话',sortable:true,width:100,align:'center'},
+        {field:'loginCount',title:'登录次数',sortable:true,align:'center'},
+        {field:'previousVisit',title:'上一次登录',sortable:true,align:'center'}
     ]],
     headerContextMenu: [
         {
