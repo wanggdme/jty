@@ -33,7 +33,7 @@
 			</tr>
 			<tr>
 				<td>出生日期：</td>
-				<td><input name="birthday" type="text" class="easyui-my97" datefmt="yyyy-MM-dd" data-options="width: 150" value="<fmt:formatDate value="${user.birthday}"/>"/></td>
+				<td><input name="birthday" type="text" readonly="readonly" class="easyui-my97" datefmt="yyyy-MM-dd" data-options="width: 150" value="<fmt:formatDate value="${user.birthday}"/>"/></td>
 			</tr>
 			<tr>
 				<td>性别：</td>
